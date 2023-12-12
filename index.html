@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .header {
+            height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+        .imagen{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="boleta">
+        <h1>Depuración de Creatinina</h1>
+        <h1>Orina de 24 horas</h1>
+        <p>La recolección de la muestra debe</p>
+        <p>iniciarse a las 6:00 a.m. de un día,</p>
+        <p>hasta las 6:00 a.m. del día siguiente.</p>
+        <p></p>
+        
+        <p style="margin-top: 10px;">1. Al levantarse, eliminar la primera</p>
+        <p>orina de la mañana.</p>
+        <p style="margin-top: 10px;">2. A partir de la segunda orina,</p>
+        <p>empiece a recolectar en un</p>
+        <p>recipiente limpio, toda la orina del</p>
+        <p>día y la noche ( durante 24 horas</p>
+        <p>seguidas ), incluyendo la primera</p>
+        <p>orina del día siguiente.</p>
+    </div>
+    <button onclick="imprimirDiv()">Imprimir</button>
+    
+    <script>
+        // Función para obtener parámetros de la URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        
+        // Obtener el valor del parámetro "parametro1" desde la URL
+        var parametro = getParameterByName('parametro');
+        
+        
+        // Mostrar valores en un alert
+        if (parametro == "Ticket1") {
+            alert(`Atención Normal`);            
+            function imprimirDiv() {
+            window.print();
+            }
+        
+        } 
+        else if(parametro == "Ticket2") {
+            alert('Atención Preferencial');
+        }
+        else if(parametro == "Ticket3") {
+            alert('Toma muestra Normal');
+        }
+        else if(parametro == "Ticket4") {
+            alert('Toma Muestra Preferencial');
+        }
+        else if(parametro == "Tolerancia") {
+            alert('Tolerancia');
+        }
+        else if(parametro == "Orina") {
+            alert('Orina 24 horas');
+        }
+        else if(parametro == "Depuracion") {
+            alert('Depuracion');
+        }
+    </script>
+</body>
+</html>
